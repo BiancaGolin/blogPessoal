@@ -1,0 +1,8 @@
+.parallax {
+    background-image: url(https://img.freepik.com/vetores-gratis/gatos-bonitos-dos-desenhos-animados-e-vetor-do-copo-de-cafe_39961-1253.jpg?size=626&ext=jpg);
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: cover;
+}
