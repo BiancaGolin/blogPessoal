@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
 import { Usuario } from '../model/Usuario';
 import { UsuarioLogin } from '../model/UsuarioLogin';
 
@@ -16,5 +17,25 @@ export class AuthService {
 
   cadastrar(usuario: Usuario) {
     return this.http.post('http://localhost:9000/usuarios/cadastrar', usuario)
+  }
+
+  btnSair() {
+    let ok = false
+    let token = localStorage.getItem('token')
+
+    if (token != null) {
+      ok = true
+    }
+    return ok
+  }
+
+  btnLogin() {
+    let ok = false
+    let token = localStorage.getItem('token')
+
+    if (token == null) {
+      ok = true
+    }
+    return ok
   }
 }
