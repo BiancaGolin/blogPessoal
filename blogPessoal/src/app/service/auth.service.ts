@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { faLessThanEqual } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
 import { Usuario } from '../model/Usuario';
 import { UsuarioLogin } from '../model/UsuarioLogin';
 
@@ -11,12 +12,12 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  logar(usuarioLogin: UsuarioLogin) {
-    return this.http.post('http://localhost:9000/usuarios/logar', usuarioLogin)
+  logar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin> {
+    return this.http.post<UsuarioLogin>('http://localhost:9000/usuarios/logar', usuarioLogin)
   }
 
-  cadastrar(usuario: Usuario) {
-    return this.http.post('http://localhost:9000/usuarios/cadastrar', usuario)
+  cadastrar(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>('http://localhost:9000/usuarios/cadastrar', usuario)
   }
 
   btnSair() {
