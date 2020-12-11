@@ -11,17 +11,18 @@ import { AuthService } from '../service/auth.service';
 export class LoginComponent implements OnInit {
 
   usuarioLogin: UsuarioLogin = new UsuarioLogin()
+
   constructor(
     private authService: AuthService,
     private router: Router
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   entrar() {
     this.authService.logar(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
-      this.usuarioLogin = resp
+      this.usuarioLogin= resp
       localStorage.setItem('token', this.usuarioLogin.token)
       this.router.navigate(['/feed'])
     })

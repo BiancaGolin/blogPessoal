@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Tema } from '../model/Tema';
 import { TemaService } from '../service/tema.service';
 
@@ -25,6 +26,7 @@ export class PostTemaComponent implements OnInit {
   findAllTemas() {
     this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
       this.listaTemas = resp
+      console.log('Lista de temas ' + JSON.stringify(this.listaTemas))
     })
   }
 
@@ -40,7 +42,7 @@ export class PostTemaComponent implements OnInit {
     } else {
       this.temaService.postTema(this.tema).subscribe((resp: Tema) => {
         this.tema = resp
-        this.router.navigate('/feed')
+        this.router.navigate(['/feed'])
         alert('Tema cadastrado com sucesso')
       })
       

@@ -12,7 +12,7 @@ import { TemaService } from '../service/tema.service';
 })
 export class FeedComponent implements OnInit {
 
-  key = 'data'
+  key = 'date'
   reverse = true
 
   postagem: Postagem = new Postagem()
